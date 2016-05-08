@@ -1,0 +1,14 @@
+development:
+  adapter: postgresql
+  database: contact_api_app_development
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: contact_api_app_test
+  host: localhost
+
+production:
+  adapter: postgresql
+  database: contact_api_app_production
+  host: localhost

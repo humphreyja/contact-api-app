@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def create
     unless params["user"].nil?
-      responce = RestClient.post("http://localhost:4000/api/users", {api_token: ENV["APIKEY"], user: params["user"]})
+      responce = RestClient.post("#{ENV['API_URL']}/users", {api_token: ENV["APIKEY"], user: params["user"]})
       json_res = JSON.parse(responce)
       u = User.new(json_res)
       logger.ap json_res
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    res = RestClient.get("http://localhost:4000/api/users/#{params[:id]}", params: {api_token: ENV["APIKEY"]})
+    res = RestClient.get("#{ENV['API_URL']}/users/#{params[:id]}", params: {api_token: ENV["APIKEY"]})
     @user = User.new(JSON.parse(res))
     @token = get_user
   end

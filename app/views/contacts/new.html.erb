@@ -1,0 +1,12 @@
+<section>
+  <h2>Add new contact</h2>
+  <%= form_tag contacts_path, method: :post do %>
+    <%= fields_for :contact do |f| %>
+      <%= f.text_field :first_name %>
+      <%= f.text_field :last_name %>
+      <%= f.text_field :email %>
+      <%= f.text_field :phone_number %>
+    <% end %>
+    <%= submit_tag :submit %>
+  <% end %>
+</section>

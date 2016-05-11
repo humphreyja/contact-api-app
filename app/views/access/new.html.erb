@@ -1,0 +1,10 @@
+<section>
+  <h2>Sign in</h2>
+  <%= form_tag access_index_path, method: :post do %>
+    <%= fields_for :user do |f| %>
+      <%= f.text_field :username %>
+      <%= f.password_field :password %>
+    <% end %>
+    <%= submit_tag :submit %>
+  <% end %>
+</section>

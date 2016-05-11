@@ -1,13 +1,10 @@
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :async, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+class User
+  attr_accessor :first_name, :last_name, :id, :username
 
-  # Returns the name to be displayed for the user. The user's name will be
-  # returned if it exists and will fall back to the user's email address.
-  # @return [String]
-  def display_name
-    self.name.blank? ? self.email : self.name
+  def initialize(hash = {})
+    @first_name = hash["first_name"]
+    @last_name = hash["last_name"]
+    @username = hash["username"]
+    @id = hash["id"]
   end
 end

@@ -22,4 +22,16 @@ module ApplicationHelper
     body_classes << @body_class if @body_class
     body_classes.join(" ")
   end
+
+  def set_user(token)
+    session[:user] = token unless token.nil?
+  end
+
+  def remove_user
+    session.delete(:user)
+  end
+
+  def get_user
+    session[:user]
+  end
 end

@@ -1,5 +1,6 @@
 ContactApiApp::Application.routes.draw do
-  ActiveAdmin.routes(self)
-  devise_for :admin_users, :users
-  draw_static_pages
+    root "users#new"
+    resources :users
+    resources :access
+    resources :contacts
 end

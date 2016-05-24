@@ -1,14 +1,18 @@
 class Contact
-  attr_accessor :first_name, :last_name, :email, :phone_number
+  attr_accessor :name, :email, :phone_number, :version, :updated_at
 
   def initialize(hash = {})
-    @first_name = hash["first_name"]
-    @last_name = hash["last_name"]
+    @name = hash["name"]
     @email = hash["email"]
     @phone_number = hash["phone_number"]
+    @version = hash["version"]
   end
 
   def to_partial_path
     "contacts/contact"
+  end
+
+  def touch
+    @updated_at = DateTime.now
   end
 end

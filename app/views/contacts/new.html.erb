@@ -2,11 +2,19 @@
   <h2>Add new contact</h2>
   <%= form_tag contacts_path, method: :post do %>
     <%= fields_for :contact do |f| %>
-      <%= f.text_field :first_name %>
-      <%= f.text_field :last_name %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :email %>
       <%= f.text_field :email %>
+      <%= f.label :phone_number %>
       <%= f.text_field :phone_number %>
     <% end %>
+
+    <%= label_tag "New Contact" %>
+    <%= text_field_tag :smart %>
+
     <%= submit_tag :submit %>
   <% end %>
+
+
 </section>

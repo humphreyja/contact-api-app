@@ -3,7 +3,6 @@
     <% if get_user.nil? %>
       <%= link_to "Sign_in", new_access_path %>
     <% else %>
-      <%= get_user %>
       <%= link_to "Sign_out", edit_access_path(:user) %>
     <% end %>
   <h5>
